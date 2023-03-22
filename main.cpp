@@ -8,7 +8,7 @@
 int main()
 {
 	//proc/meminfo
-	std::ifstream fin("C:\\Users\\Zver\\Desktop\\meminfo.txt", std::ios::in);
+	std::ifstream fin("/proc/meminfo", std::ios::in);
 	std::multimap<unsigned long, std::string> info_from_file;
 
 	try
@@ -47,7 +47,7 @@ int main()
 		}
 		fin.close();
 
-		std::ofstream fout("C:\\Users\\Zver\\Desktop\\out.txt", std::ios::out);
+		std::ofstream fout("/proc/meminfo_new", std::ios::out);
 		if (!fout.is_open())
 			throw std::runtime_error("Cant open or create file.");
 
